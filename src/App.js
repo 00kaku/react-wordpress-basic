@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./style.css";
+import { Router } from "@reach/router";
+import Login from "./components/Login";
+import Dashboard from "./components/dashboard/Dashboard";
+import Home from "./components/Home";
+import SinglePost from "./components/SinglePost";
+import CreatePost from "./components/dashboard/posts/CreatePost";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div>
+			<Router>
+				<Home path="/" />
+				<Login path="/login" />
+				<Dashboard path="/dashboard/:userName" />
+				<CreatePost path="/dashboard/create-post" />
+				<SinglePost path="/post/:id" />
+			</Router>
+		</div>
+	);
 }
 
 export default App;
